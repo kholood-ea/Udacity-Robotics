@@ -1,0 +1,3 @@
+/home/robond/Documents/firstProject/build/CMakeFiles/edit_cache.dir
+/home/robond/Documents/firstProject/build/CMakeFiles/rebuild_cache.dir
+/home/robond/Documents/firstProject/build/CMakeFiles/hello.dir
