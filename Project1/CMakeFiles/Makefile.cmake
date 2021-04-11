@@ -7,12 +7,12 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "../CMakeLists.txt"
   "CMakeFiles/3.5.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.5.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.5.1/CMakeSystem.cmake"
   "CMakeFiles/feature_tests.c"
   "CMakeFiles/feature_tests.cxx"
+  "CMakeLists.txt"
   "/usr/lib/x86_64-linux-gnu/cmake/gazebo/gazebo-config-version.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/gazebo/gazebo-config.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/ignition-math2/ignition-math2-config-version.cmake"
