@@ -10,3 +10,13 @@ First Project Tasks:
 - Build Humanoid robot.
 
 - create a plugin that display a welcoming message.
+
+
+
+Second Project Tasks:
+
+- Building a car model 
+
+- adding plugin that moves the car
+
+- detect white ball based on image processing for white pixels .
