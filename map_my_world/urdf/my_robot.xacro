@@ -1,7 +1,7 @@
 <?xml version='1.0'?>
 
 <robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
-<xacro:include filename="$(find map_my_world)/urdf/my_robot.gazebo" />
+<xacro:include filename="$(find my_robot)/urdf/my_robot.gazebo" />
 
    <gazebo reference="chassis">
     <material>Gazebo/Grey</material>
@@ -15,7 +15,7 @@
     <material>Gazebo/Blue</material>
   </gazebo>
 
-  <gazebo reference="camera_link_optical">
+  <gazebo reference="camera">
     <material>Gazebo/Red</material>
   </gazebo>
 
@@ -49,12 +49,18 @@
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
 
-  <!-- <joint type="fixed" name="camera_joint">
+  <joint type="fixed" name="camera_joint">
     <origin xyz="0.2 0 0" rpy="0 0 0"/>
     <child link="camera"/>
     <parent link="chassis"/>
     <axis xyz="0 1 0"/>
-  </joint> -->
+  </joint>
+   <joint name="camera_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.5707 0 -1.5707"/>
+    <!-- <parent link="camera_link"/> -->
+    <parent link="camera"/>
+    <child link="camera_link_optical"/>
+  </joint>
 
   <joint type="fixed" name="hokuyo_joint">
     <origin xyz="0.15 0 0.1" rpy="0 0 0"/>
@@ -89,6 +95,7 @@
         <box size=".4 .2 .1"/>
       </geometry>
     </visual>
+
 
 
     <collision name='back_caster_collision'>
@@ -174,6 +181,8 @@
 	</link>
 
   <link name="camera_link_optical">
+  </link>
+  <link name="camera">
 	  <inertial>
       <mass value="0.1"/>
       <origin xyz="0 0 0" rpy=" 0 0 0"/>
@@ -224,16 +233,11 @@
     <visual name='hokuyo_visual'>
      <origin xyz="0 0 0" rpy=" 0 0 0"/>
       <geometry>
-        <mesh filename="package://map_my_world/meshes/hokuyo.dae"/>
+        <mesh filename="package://my_robot/meshes/hokuyo.dae"/>
       </geometry>
     </visual>
 	</link>
 
-<joint name="camera_optical_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="-1.5707 0 -1.5707"/>
-    <parent link="chassis"/>
-    <child link="camera_link_optical"/>
-  </joint>
 
 
 </robot>
