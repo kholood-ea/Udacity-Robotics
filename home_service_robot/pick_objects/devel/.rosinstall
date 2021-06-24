@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/robond/Documents/catkin_ws/src/home_service_robot/pick_objects/devel/setup.sh
