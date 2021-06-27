@@ -26,8 +26,8 @@
     </plugin>
   </gazebo>
 
-  <!-- camera -->
-      <gazebo reference="camera">
+  <!--RGBD camera -->
+  <gazebo reference="camera">
     <sensor type="depth" name="camera1">
         <always_on>1</always_on>
         <update_rate>20.0</update_rate>
@@ -45,24 +45,9 @@
                 <near>0.1</near>
                 <far>20</far>
             </clip>
-      </camera>
-  <!-- <gazebo reference="camera">
-    <sensor type="camera" name="camera1">
-      <update_rate>30.0</update_rate>
-      <camera name="head">
-        <horizontal_fov>1.3962634</horizontal_fov>
-        <image>
-          <width>800</width>
-          <height>800</height>
-          <format>R8G8B8</format>
-        </image>
-        <clip>
-          <near>0.02</near>
-          <far>300</far>
-        </clip>
-      </camera> -->
+      </camera> 
       <!-- <plugin name="camera_controller" filename="libgazebo_ros_camera.so"> -->
-            <plugin name="camera_controller" filename="libgazebo_ros_openni_kinect.so">
+      <plugin name="camera_controller" filename="libgazebo_ros_openni_kinect.so">
 
         <alwaysOn>true</alwaysOn>
         <!-- <updateRate>0.0</updateRate> -->
