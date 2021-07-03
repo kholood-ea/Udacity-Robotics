@@ -13,6 +13,9 @@ xterm -e "roslaunch turtlebot_teleop keyboard_teleop.launch"
 # xterm  -e  "roslaunch '/home/workspace/catkin_ws/src/turtlebot_simulator/turtlebot_gazebo/launch/gmapping_demo.launch" & 
 
 # sleep 5
+# xterm  -e  "roslaunch '/home/workspace/catkin_ws/src/turtlebot_simulator/turtlebot_gazebo/launch/gmapping_demo.launch" & 
+
+# sleep 5
 
 # xterm  -e  "roslaunch turtlebot_interactions turtlebot_rviz_launchers view_navigation.launch"&
 # sleep 5
