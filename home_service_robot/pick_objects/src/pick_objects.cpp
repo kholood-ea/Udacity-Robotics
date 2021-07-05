@@ -24,8 +24,9 @@ int main(int argc, char** argv){
   goal.target_pose.header.stamp = ros::Time::now();
 
   // Define a position and orientation for the robot to reach
-  goal.target_pose.pose.position.x = 1.0;
-  goal.target_pose.pose.orientation.w = 1.0;
+  //modified
+  goal.target_pose.pose.position.x = 2.0;
+  goal.target_pose.pose.orientation.w = 2.0;
 
    // Send the goal position and orientation for the robot to reach
   ROS_INFO("Sending goal");
@@ -33,6 +34,9 @@ int main(int argc, char** argv){
 
   // Wait an infinite time for the results
   ac.waitForResult();
+
+//  5 secs sleep 
+ros::Duration(5.0).sleep();
 
   // Check if the robot reached its goal
   if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
