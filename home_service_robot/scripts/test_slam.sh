@@ -1,8 +1,5 @@
 #!/bin/sh
 
-export TURTLEBOT_GAZEBO_WORLD_FILE=$(rospack find world)/kholood.world
-# export TURTLEBOT_GAZEBO_WORLD_FILE=/home/workspace/catkin_ws/src/map/kholood.world
-
 xterm -e "roslaunch turtlebot_gazebo turtlebot_world.launch" & 
 sleep 5
 
