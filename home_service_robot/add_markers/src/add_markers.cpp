@@ -106,7 +106,7 @@ int main(int argc, char **argv)
       break;
     }
     // %EndTag(CYCLE_SHAPES)%
-
+    marker_pub.publish(marker);
     // %Tag(SLEEP_END)%
     ros::spinOnce();
     r.sleep();
