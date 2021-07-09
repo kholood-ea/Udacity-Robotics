@@ -9,5 +9,5 @@ sleep 5
 xterm -e "roslaunch turtlebot_rviz_launchers view_navigation.launch" &
 sleep 5
 
-xterm -e "rosrun add_marker add_marker" &
+xterm -e "rosrun add_markers add_markers" &
 
