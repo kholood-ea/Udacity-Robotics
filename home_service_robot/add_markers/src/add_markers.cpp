@@ -108,6 +108,7 @@ int main(int argc, char **argv)
     // %EndTag(CYCLE_SHAPES)%
 
     // %Tag(SLEEP_END)%
+    ros::spinOnce();
     r.sleep();
   }
   // %EndTag(SLEEP_END)%
