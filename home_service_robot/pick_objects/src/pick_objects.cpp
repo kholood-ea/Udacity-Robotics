@@ -24,12 +24,13 @@ int main(int argc, char** argv){
   goal.target_pose.header.stamp = ros::Time::now();
 
   // Define a position and orientation for the robot to reach
-  //modified
-  goal.target_pose.pose.position.x = 2.0;
-  goal.target_pose.pose.orientation.w = 2.0;
+  //point inside map
+  goal.target_pose.pose.position.x = -4;
+  goal.target_pose.pose.position.y = -4;
+  goal.target_pose.pose.orientation.w = 1;
 
    // Send the goal position and orientation for the robot to reach
-  ROS_INFO("Sending goal");
+  ROS_INFO("Sending gooooooal");
   ac.sendGoal(goal);
 
   // Wait an infinite time for the results
