@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 
   // Set our initial shape type to be a cube
   // %Tag(SHAPE_INIT)%
-  uint32_t shape = visualization_msgs::Marker::ARROW;
+  uint32_t shape = visualization_msgs::Marker::CUBE;
   // %EndTag(SHAPE_INIT)%
 
   // %Tag(MARKER_INIT)%
@@ -42,12 +42,6 @@ int main(int argc, char **argv)
     // Set the marker action.  Options are ADD, DELETE, and new in ROS Indigo: 3 (DELETEALL)
     // %Tag(ACTION)%
     marker.action = visualization_msgs::Marker::ADD;
-    ros::Duration(5.0).sleep();
-    marker.action = visualization_msgs::Marker::DELETE;
-    ros::Duration(5.0).sleep();
-    marker.action = visualization_msgs::Marker::ADD;
-
-
     // %EndTag(ACTION)%
 
     // Set the pose of the marker.  This is a full 6DOF pose relative to the frame/time specified in the header
