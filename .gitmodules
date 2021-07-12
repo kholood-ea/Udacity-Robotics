@@ -7,3 +7,6 @@
 [submodule "home_service_robot/turtlebot_interactions"]
 	path = home_service_robot/turtlebot_interactions
 	url = https://github.com/turtlebot/turtlebot_interactions
+[submodule "home_service_robot/turtlebot_simulator"]
+	path = home_service_robot/turtlebot_simulator
+	url = https://github.com/turtlebot/turtlebot_simulator
