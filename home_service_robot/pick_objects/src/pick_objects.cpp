@@ -25,8 +25,9 @@ int main(int argc, char** argv){
 
   // Define a position and orientation for the robot to reach
   //modified
-  goal.target_pose.pose.position.x = -4.0;
-  goal.target_pose.pose.orientation.w = 1.0;
+  goal.target_pose.pose.position.x = -3.0;
+   goal.target_pose.pose.position.y = 1.0;
+   goal.target_pose.pose.orientation.w = 0.0;
 
    // Send the goal position and orientation for the robot to reach
   ROS_INFO("Sending gooal");
@@ -40,9 +41,30 @@ ros::Duration(5.0).sleep();
 
   // Check if the robot reached its goal
   if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
-    ROS_INFO("Hooray, the base moved 1 meter forward");
+   {
+      ROS_INFO("Hooray, the base moved 1 meter forward"); 
+      ros::Duration(5.0).sleep();
+   } 
   else
     ROS_INFO("The base failed to move forward 1 meter for some reason");
+
+// 2nd goal
+  goal.target_pose.pose.position.x = -2.3;
+   goal.target_pose.pose.position.y = 1.0;
+   goal.target_pose.pose.orientation.w = 0.0;
+
+    ROS_INFO("Sending 2nd gooal");
+  ac.sendGoal(goal);
+
+  ac.waitForResult();
+  if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
+   {
+      ROS_INFO("Hooray, the base moved 1 meter to 2nd goal forward"); 
+      ros::Duration(5.0).sleep();
+   } 
+  else
+    ROS_INFO("The base failed to move forward 1 meter to 2nd for some reason");
+
 
   return 0;
 }
