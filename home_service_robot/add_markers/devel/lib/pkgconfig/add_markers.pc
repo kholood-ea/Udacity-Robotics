@@ -1,8 +1,0 @@
-prefix=/home/robond/Documents/catkin_ws/src/home_service_robot/add_markers/devel
-
-Name: add_markers
-Description: Description of add_markers
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/robond/Documents/catkin_ws/src/home_service_robot/add_markers/devel/lib 
-Requires: 
