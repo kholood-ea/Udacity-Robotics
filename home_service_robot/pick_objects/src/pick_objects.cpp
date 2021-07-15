@@ -6,8 +6,8 @@
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
 int main(int argc, char** argv){
-  // Initialize node
-  ros::init(argc, argv, "pick_objects");
+  // Initialize the simple_navigation_goals node
+  ros::init(argc, argv, "simple_navigation_goals");
 
   //tell the action client that we want to spin a thread by default
   MoveBaseClient ac("move_base", true);
@@ -20,51 +20,42 @@ int main(int argc, char** argv){
   move_base_msgs::MoveBaseGoal goal;
 
   // set up the frame parameters
-  goal.target_pose.header.frame_id = "map";
+  goal.target_pose.header.frame_id = "base_link";
   goal.target_pose.header.stamp = ros::Time::now();
 
   // Define a position and orientation for the robot to reach
-  //modified
-  goal.target_pose.pose.position.x = -3.0;
-   goal.target_pose.pose.position.y = 1.0;
-   goal.target_pose.pose.orientation.w = 0.0;
+  goal.target_pose.pose.position.x = 1.0;
+  goal.target_pose.pose.orientation.w = 1.0;
 
    // Send the goal position and orientation for the robot to reach
-  ROS_INFO("Sending gooal");
+  ROS_INFO("Sending goal");
   ac.sendGoal(goal);
 
   // Wait an infinite time for the results
   ac.waitForResult();
 
-//  5 secs sleep 
-ros::Duration(5.0).sleep();
+  // Check if the robot reached its goal
+  if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
+    ROS_INFO("Hooray, the base moved 1 meter forward");
+  else
+    ROS_INFO("The base failed to move forward 1 meter for some reason");
+     ros::Duration(5.0).sleep();
+// sending snd goal
+  goal.target_pose.pose.position.x = 2.0;
+  goal.target_pose.pose.orientation.w = -1.0;
+  
+  ROS_INFO("Sending 2nd goal");
+  ac.sendGoal(goal);
+
+  // Wait an infinite time for the results
+  ac.waitForResult();
 
   // Check if the robot reached its goal
   if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
-   {
-      ROS_INFO("Hooray, the base moved 1 meter forward"); 
-      ros::Duration(5.0).sleep();
-   } 
+    ROS_INFO("Hooray, the base moved 2 meters");
   else
-    ROS_INFO("The base failed to move forward 1 meter for some reason");
-
-// 2nd goal
-  goal.target_pose.pose.position.x = -2.3;
-   goal.target_pose.pose.position.y = 1.0;
-   goal.target_pose.pose.orientation.w = 0.0;
-
-    ROS_INFO("Sending 2nd gooal");
-  ac.sendGoal(goal);
-
-  ac.waitForResult();
-  if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
-   {
-      ROS_INFO("Hooray, the base moved 1 meter to 2nd goal forward"); 
-      ros::Duration(5.0).sleep();
-   } 
-  else
-    ROS_INFO("The base failed to move forward 1 meter to 2nd for some reason");
-
+    ROS_INFO("The base failed to move forward 2 meter ");
+     ros::Duration(5.0).sleep();
 
   return 0;
 }
