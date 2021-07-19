@@ -29,8 +29,8 @@ int main( int argc, char** argv )
   ros::Rate r(1);
   ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);
   ros::Subscriber sub = n.subscribe("/amcl_pose", 100, getRobotPosition);
-  double MarkerX = -0.8;
-  double MarkerY = 0.0;
+  double MarkerX = 2.75;
+  double MarkerY = 1.9;
   bool pickedUp = false;
   // Buffer distance accounting for error 
   double closeDistance = 0.2;
@@ -102,19 +102,18 @@ int main( int argc, char** argv )
       marker.action = visualization_msgs::Marker::DELETE;
       marker_pub.publish(marker);
       pickedUp = true;
+      MarkerX=4.75;
+      MarkerY=2.0;
+
+        marker.action = visualization_msgs::Marker::ADD;
      }
             
 
-          distance = calculateDistance(-2.4,-0.4, RobotX, RobotY);
+          distance = calculateDistance(4.75,2.0, RobotX, RobotY);
 
          if(distance <= closeDistance && pickedUp == true){
        ROS_INFO("marker is close to robot to drop off");
-      MarkerX=-2.4;
-      MarkerY=-0.4;
-
-        marker.action = visualization_msgs::Marker::ADD;
        marker_pub.publish(marker);
-        pickedUp = false;
        }
       
     ros::spinOnce();

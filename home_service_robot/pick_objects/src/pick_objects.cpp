@@ -26,7 +26,7 @@ int main(int argc, char **argv)
   goal.target_pose.header.stamp = ros::Time::now();
 
   // Define a position and orientation for the robot to reach
-  goal.target_pose.pose.position.x = -1.0;
+  goal.target_pose.pose.position.x = 1.0;
   goal.target_pose.pose.position.y = 0.0;
   goal.target_pose.pose.orientation.w = 1.0;
 
@@ -45,7 +45,7 @@ int main(int argc, char **argv)
     ROS_INFO("The base failed to move forward 1 meter for some reason");
   ros::Duration(5).sleep();
   // sending snd goal
-  goal.target_pose.pose.position.x = -1.5;
+  goal.target_pose.pose.position.x =2.0;
   goal.target_pose.pose.position.y = 0.0;
   goal.target_pose.pose.orientation.w = 1.0;
 
