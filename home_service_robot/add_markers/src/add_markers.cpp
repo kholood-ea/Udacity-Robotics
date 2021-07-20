@@ -99,6 +99,7 @@ int main( int argc, char** argv )
      if(distance <= closeDistance && pickedUp == false){
       
      ROS_INFO("marker is close to robot to pick up");
+     sleep(5);
       marker.action = visualization_msgs::Marker::DELETE;
       marker_pub.publish(marker);
       pickedUp = true;
@@ -113,6 +114,7 @@ int main( int argc, char** argv )
 
          if(distance <= closeDistance && pickedUp == true){
        ROS_INFO("marker is close to robot to drop off");
+        sleep(5);
        marker_pub.publish(marker);
        }
       
