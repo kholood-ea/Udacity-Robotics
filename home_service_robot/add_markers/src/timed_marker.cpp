@@ -1,7 +1,7 @@
 #include <ros/ros.h>
 #include <visualization_msgs/Marker.h>
 
-int main(int argc, char **argv)
+int main( int argc, char** argv )
 {
   ros::init(argc, argv, "basic_shapes");
   ros::NodeHandle n;
@@ -10,8 +10,8 @@ int main(int argc, char **argv)
 
   // Set our initial shape type to be a cube
   uint32_t shape = visualization_msgs::Marker::SPHERE;
-  double MarkerX = 2.75;
-  double MarkerY = 1.9;
+  double x = 2.75;
+  double y = 1.9;
 
   while (ros::ok())
   {
@@ -68,17 +68,19 @@ int main(int argc, char **argv)
     // pause 5 secs
     ros::Duration(5.0).sleep();
     // hide marker
-    marker.action = visualization_msgs::Marker::DELETE;
-    marker_pub.publish(marker);
+     marker.action = visualization_msgs::Marker::DELETE;
+     marker_pub.publish(marker);
 
-    // pause 5 secs
+     // pause 5 secs
     ros::Duration(5.0).sleep();
     // drop off zone
-    MarkerX = 4.75;
-    MarkerY = 2.0;
-    marker.action = visualization_msgs::Marker::ADD;
+      x=4.75;
+      y=2.0; 
+     marker.action = visualization_msgs::Marker::ADD;
+   
+   marker_pub.publish(marker);
 
-    marker_pub.publish(marker);
+
 
     ros::spinOnce();
 
